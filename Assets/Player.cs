@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float zOffset = 3;
     [SerializeField] private float animationTime = 1f;
     [SerializeField] private float endRotation = -40f;
+    [SerializeField] private AudioClip YesSound;
+    [SerializeField] private AudioClip NoSound;
+    [SerializeField] private Animator rommAnimator;
+
 
     private Quaternion start;
 
@@ -51,6 +56,22 @@ public class Player : MonoBehaviour
             transform.localRotation = Quaternion.Lerp(current, start, time / animationTime);
             time += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Yes")
+        {
+            Debug.Log("Yes");
+        }
+        
+        if(other.tag == "No")
+        {
+            StopAllCoroutines();
+            Debug.Log("No");
+            rommAnimator.SetTrigger("No");
+            enabled = false;
         }
     }
 }

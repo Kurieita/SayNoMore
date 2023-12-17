@@ -10,7 +10,7 @@ public class ControlAnimation : MonoBehaviour
     {
         animator.speed = 0;
     }
-    
+
     public void Play()
     {
         animator.speed = 1;
