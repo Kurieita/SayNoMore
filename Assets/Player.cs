@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip YesSound;
     [SerializeField] private AudioClip NoSound;
     [SerializeField] private Animator rommAnimator;
+    private AudioSource audioSource;
 
 
     private Quaternion start;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         start = transform.localRotation;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Yes")
         {
             Debug.Log("Yes");
+            audioSource.Play();
         }
         
         if(other.tag == "No")
