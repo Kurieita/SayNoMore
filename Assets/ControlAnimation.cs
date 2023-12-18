@@ -16,6 +16,7 @@ public class ControlAnimation : MonoBehaviour
     private void Start()
     {
         rbs = GetComponentsInChildren<Rigidbody>();
+        Cursor.visible = false;
     }
 
     public void Freeze()

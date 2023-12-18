@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float zOffset = 3;
     [SerializeField] private float animationTime = 1f;
     [SerializeField] private float endRotation = -40f;
-    [SerializeField] private AudioClip YesSound;
-    [SerializeField] private AudioClip NoSound;
     [SerializeField] private Animator rommAnimator;
     private AudioSource audioSource;
 
